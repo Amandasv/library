@@ -3,6 +3,11 @@ package com.twu.biblioteca;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
-        System.out.println("Hello, world!");
+
+        Welcome welcome = new Welcome();
+        Printer printer = new Printer();
+
+        printer.print(welcome.message("Hello, Welcome to Bangalore Public Library"));
+
     }
 }
