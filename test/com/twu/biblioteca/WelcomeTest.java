@@ -12,8 +12,6 @@ public class WelcomeTest {
         String message = "Welcome";
 
         Assert.assertEquals(message, welcome.message("Welcome"));
-
-
     }
 
 }
