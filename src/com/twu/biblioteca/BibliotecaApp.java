@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class BibliotecaApp {
 
@@ -11,29 +12,39 @@ public class BibliotecaApp {
 
         Welcome welcome = new Welcome();
         Printer printer = new Printer();
+        Scanner reader = new Scanner(System.in);
 
 
-        printer.print(welcome.message("Hello, Welcome to Bangalore Public Library! \n\n"));
+        printer.print(welcome.message("Hello, Welcome to Bangalore Public Library! \n"));
+        int option = 0;
 
-        BookService bookService = new BookService(createBookList());
         Menu menu = new Menu(createMenuList());
 
-        printer.print("Here is the list of all books available \n\n");
-        printer.print(bookService.listAll());
-        printer.print(menu.showOptions());
+
+        while (option != 9) {
+            printer.print("\n\n----------------------------\n");
+            printer.print("-----------Menu-------------\n\n");
+
+            printer.print(menu.showOptions());
+            printer.print("\n----------------------------\n");
+
+            printer.print("Please, choose an option: ");
+            option = reader.nextInt();
+            menu.chooseOption(option);
+
+            if (option == 9) {
+                printer.print("\nByebye :) \n");
+            }
+        }
 
     }
 
-    private static List<Book> createBookList(){
-        Book book1 = new Book("Harry Potter", "J. K. Rowling", "June 26, 1997");
-        Book book2 = new Book("Head First Java", "Kathy Sierra, Bert Bates", "2003");
-        List<Book> bookList = Arrays.asList(book1, book2);
-        return bookList;
-    }
 
     private static List<Option> createMenuList(){
         Option listBooks = new Option("List Book", 1);
-        List<Option> menuItens = Arrays.asList(listBooks);
+        Option option2 = new Option("Option 2", 2);
+        Option exit = new Option("Exit", 9);
+        List<Option> menuItens = Arrays.asList(listBooks, option2, exit);
         return menuItens;
     }
 }

@@ -15,7 +15,10 @@ public class MenuTest {
         Menu menu = new Menu(menuList);
 
         Assert.assertEquals(menu.showOptions(), menuList);
-
-
     }
+
+//    @Test
+//    public void returnsIfOptionExist() {
+//
+//    }
 }
