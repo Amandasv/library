@@ -1,11 +1,14 @@
 package com.twu.biblioteca;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -30,5 +33,19 @@ public class PrinterTest {
         printer.print(words);
 
         assertEquals("Printer Test", outContent.toString());
+    }
+
+    @Test
+    public void printsAListOffStrings(){
+        Printer printer = new Printer();
+
+        List parameters = Arrays.asList("Harrpy Potter", "Head First");
+        printer.print(parameters);
+
+        String expectedOutput = "- Harrpy Potter\n- Head First\n";
+
+        assertEquals(expectedOutput, outContent.toString());
+
+
     }
 }
