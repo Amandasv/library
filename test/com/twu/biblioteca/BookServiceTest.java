@@ -12,7 +12,7 @@ public class BookServiceTest {
 
     @Test
     public void initializesBookServicesWithAListOfBooks() {
-        Book book = new Book("Harry Potter");
+        Book book = new Book("Harry Potter", "J. K. Rowling","June 26, 1997");
 
         List bookList = Arrays.asList(book);
 

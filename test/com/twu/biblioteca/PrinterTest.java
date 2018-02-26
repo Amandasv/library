@@ -46,6 +46,5 @@ public class PrinterTest {
 
         assertEquals(expectedOutput, outContent.toString());
 
-
     }
 }

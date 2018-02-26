@@ -25,8 +25,8 @@ public class BibliotecaApp {
     }
 
     private static List<Book> createBookList(){
-        Book book1 = new Book("Harry Potter");
-        Book book2 = new Book("Head First");
+        Book book1 = new Book("Harry Potter", "J. K. Rowling", "June 26, 1997");
+        Book book2 = new Book("Head First Java", "Kathy Sierra, Bert Bates", "2003");
         List<Book> bookList = Arrays.asList(book1, book2);
         return bookList;
     }

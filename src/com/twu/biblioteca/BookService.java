@@ -10,14 +10,6 @@ public class BookService {
         this.bookList = bookList;
     }
 
-    public void newBook(String name){
-        Book book = new Book(name);
-    }
-
-    public void getName(){
-
-    }
-
     public List<Book> listAll() {
         return this.bookList;
     }
