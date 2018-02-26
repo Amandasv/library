@@ -20,6 +20,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return name + ", " + author + " - " + yearPublished + ";";
+        return "- " + name + ", " + author + " - " + yearPublished + ";";
     }
 }
