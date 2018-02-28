@@ -2,10 +2,19 @@ package com.twu.biblioteca;
 
 public class Book {
 
-    String name;
-    String author;
-    String yearPublished;
-    boolean isChecked;
+    private String name;
+    private String author;
+    private String yearPublished;
+    private boolean isChecked;
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
+
 
     public String getName() {
         return name;
@@ -13,14 +22,16 @@ public class Book {
     public String getAuthor() { return author; }
     public String getYearPublished() { return yearPublished; }
 
-    public Book(String name, String author, String yearPublished) {
+    public Book(String name, String author, String yearPublished, Boolean isChecked) {
         this.name = name;
         this.author = author;
         this.yearPublished = yearPublished;
+        this.isChecked = isChecked;
     }
 
     @Override
     public String toString() {
-        return "- " + name + ", " + author + " - " + yearPublished + ";";
+        String availability = (isChecked) ? "Available" : "Unavailable";
+        return "[" + availability + "] - " +  name + ", " + author + " - " + yearPublished + ";";
     }
 }
