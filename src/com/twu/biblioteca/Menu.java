@@ -40,14 +40,26 @@ public class Menu {
                     bookService.checkout(index);
                 }
                 break;
+            case 2 :
+                printer.println(optionList.get(2).getTitle() + "\n");
+                bookService.showUnavailabeleList();
+                if (bookService.unavailableList().isEmpty()) {
+                    printer.print("Sorry, but don't have book to return.");
+                } else {
+                    printer.print("Choose number of book: ");
+                    int index = reader.nextInt();
+                    bookService.returnBook(index);
+                }
+                break;
         }
     }
 
     private static List<Option> createMenuList(){
         Option listBooks = new Option("List Books", 0);
-        Option option2 = new Option("Checkout Book", 1);
+        Option checkout = new Option("Checkout Book", 1);
+        Option returnBook = new Option("Return Book", 2);
         Option exit = new Option("Exit", 9);
-        List<Option> menuItens = Arrays.asList(listBooks, option2, exit);
+        List<Option> menuItens = Arrays.asList(listBooks, checkout, returnBook, exit);
         return menuItens;
     }
 

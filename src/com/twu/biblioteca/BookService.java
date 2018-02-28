@@ -32,10 +32,22 @@ public class BookService {
         return this.bookList.stream().filter(book -> book.isChecked()).collect(Collectors.toList());
     }
 
+    public List<Book> unavailableList() {
+        return this.bookList.stream().filter(book -> !book.isChecked()).collect(Collectors.toList());
+    }
+
     public void showAvailableList() {
         for (int iterator = 0; iterator < availableList().size(); iterator++) {
             String position = Integer.toString(iterator);
             System.out.println("[" + position + "] - " + availableList().get(iterator).getName());
+
+        }
+    }
+
+    public void showUnavailabeleList() {
+        for (int iterator = 0; iterator < unavailableList().size(); iterator++) {
+            String position = Integer.toString(iterator);
+            System.out.println("[" + position + "] - " + unavailableList().get(iterator).getName());
 
         }
     }
@@ -53,4 +65,20 @@ public class BookService {
             printer.println("That book is not available.");
         }
     }
+
+    public void returnBook(int index) {
+        if (index <= unavailableList().size()-1) {
+            Book selectedBook = unavailableList().get(index);
+            if (unavailableList().contains(selectedBook)) {
+                selectedBook.setChecked(true);
+                printer.println("Book " + selectedBook.getName() + " returning");
+                printer.println("Thank you for returning the book.");
+            }
+        }
+        else {
+            printer.println("That is not a valid book to return.");
+        }
+    }
+
+
 }
