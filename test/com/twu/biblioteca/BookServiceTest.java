@@ -16,7 +16,7 @@ public class BookServiceTest {
 
         List bookList = Arrays.asList(book);
 
-        BookService bookService = new BookService(bookList);
+        BookService bookService = new BookService();
 
         Assert.assertEquals(bookService.listAll(),bookList);
 

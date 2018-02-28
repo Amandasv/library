@@ -13,6 +13,9 @@ public class Printer {
         for (Object object : list) {
             System.out.println(object.toString());
         }
+    }
 
+    public void println(String words){
+        System.out.println(words);
     }
 }

@@ -5,6 +5,7 @@ public class Book {
     String name;
     String author;
     String yearPublished;
+    boolean isChecked;
 
     public String getName() {
         return name;

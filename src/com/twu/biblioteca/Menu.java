@@ -6,35 +6,40 @@ import java.util.List;
 public class Menu {
 
     private List<Option> optionList;
-    Printer printer = new Printer();
-    BookService bookService = new BookService(createBookList());
+    private Printer printer = new Printer();
+    private BookService bookService = new BookService();
 
-    public Menu(List<Option> optionList) {
-        this.optionList = optionList;
+    public Menu() {
+        this.optionList = createMenuList();
     }
 
-    public List<Option> showOptions() {
-        return this.optionList;
+    public void showOptions() {
+        optionList.forEach(option -> printer.print(option.toString() + "\n") );
     }
+
 
     public void chooseOption(int option) {
+        printer.print("[" + option + "] ");
+
         switch (option) {
-            case 1 :
-                printer.print("Here is the list of all books available \n\n");
+            case 0 :
+                printer.println(optionList.get(0).getTitle() + "\n");
                 printer.print(bookService.listAll());
                 break;
-            case 2 :
-                printer.print("Opcao 2");
+            case 1 :
+                printer.println(optionList.get(1).getTitle() + "\n");
+
                 break;
 
         }
     }
 
-    private static List<Book> createBookList(){
-        Book book1 = new Book("Harry Potter", "J. K. Rowling", "June 26, 1997");
-        Book book2 = new Book("Head First Java", "Kathy Sierra, Bert Bates", "2003");
-        List<Book> bookList = Arrays.asList(book1, book2);
-        return bookList;
+    private static List<Option> createMenuList(){
+        Option listBooks = new Option("List Book", 0);
+        Option option2 = new Option("Add Book", 1);
+        Option exit = new Option("Exit", 9);
+        List<Option> menuItens = Arrays.asList(listBooks, option2, exit);
+        return menuItens;
     }
 
 
