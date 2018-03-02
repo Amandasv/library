@@ -49,5 +49,34 @@ public class BookServiceTest {
         assertNotEquals(bookService.listAll(), bookService.availableList());
     }
 
+    @Test
+    public void checkOutIfBookIsAvailable(){
+        int selectedBookIndex = 1;
+        Book selectedBook = bookService.availableList().get(selectedBookIndex);
+
+        bookService.checkout(selectedBookIndex);
+
+        Assert.assertFalse(bookService.availableList().contains(selectedBook));
+    }
+
+    @Test
+    public void changeAvailabilityBookAfterCheckout() {
+        int selectedBookIndex = 1;
+        Book selectedBook = bookService.availableList().get(selectedBookIndex);
+
+        bookService.checkout(selectedBookIndex);
+
+        Assert.assertTrue(bookService.unavailableList().contains(selectedBook));
+    }
+
+    @Test
+    @Ignore
+    public void doesNotCheckoutIfThisIndexDoesntExist(){
+        int notExistIndex = 5;
+
+
+
+    }
+
 
  }
