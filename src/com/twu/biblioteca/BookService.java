@@ -37,19 +37,11 @@ public class BookService {
     }
 
     public void showAvailableList() {
-        for (int iterator = 0; iterator < availableList().size(); iterator++) {
-            String position = Integer.toString(iterator);
-            System.out.println("[" + position + "] - " + availableList().get(iterator).getName());
-
-        }
+        availableList().stream().forEach(book -> printer.print("[" + availableList().indexOf(book) + "] - " + book.getName()));
     }
 
-    public void showUnavailabeleList() {
-        for (int iterator = 0; iterator < unavailableList().size(); iterator++) {
-            String position = Integer.toString(iterator);
-            System.out.println("[" + position + "] - " + unavailableList().get(iterator).getName());
-
-        }
+    public void showUnavailableList() {
+        unavailableList().stream().forEach(book -> printer.print("[" + unavailableList().indexOf(book) + "] - " + book.getName()));
     }
 
     public void checkout(int index) {
