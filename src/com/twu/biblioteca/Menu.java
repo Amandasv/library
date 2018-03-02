@@ -30,7 +30,7 @@ public class Menu {
                 break;
             case 1 :
                 printer.println(optionList.get(1).getTitle() + "\n");
-                bookService.showAvailableList();
+                showAvailableList();
 
                 if (bookService.availableList().isEmpty()) {
                     printer.print("Sorry, but don't have available books");
@@ -42,7 +42,7 @@ public class Menu {
                 break;
             case 2 :
                 printer.println(optionList.get(2).getTitle() + "\n");
-                bookService.showUnavailabeleList();
+                showUnavailableList();
                 if (bookService.unavailableList().isEmpty()) {
                     printer.print("Sorry, but don't have book to return.");
                 } else {
@@ -61,6 +61,14 @@ public class Menu {
         Option exit = new Option("Exit", 9);
         List<Option> menuItens = Arrays.asList(listBooks, checkout, returnBook, exit);
         return menuItens;
+    }
+
+    public void showAvailableList() {
+        bookService.availableList().stream().forEach(book -> printer.print("[" + bookService.availableList().indexOf(book) + "] - " + book.getName()));
+    }
+
+    public void showUnavailableList() {
+        bookService.unavailableList().stream().forEach(book -> printer.print("[" + bookService.unavailableList().indexOf(book) + "] - " + book.getName()));
     }
 
 

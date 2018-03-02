@@ -36,14 +36,6 @@ public class BookService {
         return this.bookList.stream().filter(book -> !book.isChecked()).collect(Collectors.toList());
     }
 
-    public void showAvailableList() {
-        availableList().stream().forEach(book -> printer.print("[" + availableList().indexOf(book) + "] - " + book.getName()));
-    }
-
-    public void showUnavailableList() {
-        unavailableList().stream().forEach(book -> printer.print("[" + unavailableList().indexOf(book) + "] - " + book.getName()));
-    }
-
     public void checkout(int index) {
         if (index <= availableList().size()-1) {
             Book selectedBook = availableList().get(index);
