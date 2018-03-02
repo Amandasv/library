@@ -39,10 +39,13 @@ public class PrinterTest {
     public void printsAListOffStrings(){
         Printer printer = new Printer();
 
-        List parameters = Arrays.asList("Harrpy Potter", "Head First");
+        Option option = new Option("Teste1", 1);
+        Option option2 = new Option("Teste2", 2);
+
+        List parameters = Arrays.asList(option, option2);
         printer.print(parameters);
 
-        String expectedOutput = "- Harrpy Potter\n- Head First\n";
+        String expectedOutput = "[1] • Teste1\n[2] • Teste2\n";
 
         assertEquals(expectedOutput, outContent.toString());
 

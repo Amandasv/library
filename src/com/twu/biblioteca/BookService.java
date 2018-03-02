@@ -19,6 +19,7 @@ public class BookService {
         return this.bookList;
     }
 
+    //arraylist
     private static List<Book> initializeBookList(){
         Book book1 = new Book("Harry Potter", "J. K. Rowling", "1997", false);
         Book book2 = new Book("Head First Java", "Kathy Sierra, Bert Bates", "2003", true);
