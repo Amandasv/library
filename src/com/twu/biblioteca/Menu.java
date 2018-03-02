@@ -38,6 +38,13 @@ public class Menu {
                     printer.print("Choose number of book: ");
                     int index = reader.nextInt();
                     bookService.checkout(index);
+
+                    if (bookService.checkout(index)) {
+                        printer.println("Thank you! Enjoy the book");
+                    } else {
+                        printer.println("That book is not available.");
+
+                    }
                 }
                 break;
             case 2 :

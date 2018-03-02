@@ -37,18 +37,15 @@ public class BookService {
         return this.bookList.stream().filter(book -> !book.isChecked()).collect(Collectors.toList());
     }
 
-    public void checkout(int index) {
+    public boolean checkout(int index) {
         if (index <= availableList().size()-1) {
             Book selectedBook = availableList().get(index);
             if (availableList().contains(selectedBook)) {
                 selectedBook.setChecked(false);
-                printer.println("Book " + selectedBook.getName() + " selected");
-                printer.println("Thank you! Enjoy the book");
+                return true;
             }
         }
-        else {
-            printer.println("That book is not available.");
-        }
+        return false;
     }
 
     public void returnBook(int index) {
