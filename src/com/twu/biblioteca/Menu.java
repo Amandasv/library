@@ -64,12 +64,10 @@ public class Menu {
     }
 
     public void showAvailableList() {
-        bookService.availableList().stream().forEach(book -> printer.print("[" + bookService.availableList().indexOf(book) + "] - " + book.getName()));
+        bookService.availableList().stream().forEach(book -> printer.println("[" + bookService.availableList().indexOf(book) + "] - " + book.getName()));
     }
 
     public void showUnavailableList() {
-        bookService.unavailableList().stream().forEach(book -> printer.print("[" + bookService.unavailableList().indexOf(book) + "] - " + book.getName()));
+        bookService.unavailableList().stream().forEach(book -> printer.println("[" + bookService.unavailableList().indexOf(book) + "] - " + book.getName()));
     }
-
-
 }
