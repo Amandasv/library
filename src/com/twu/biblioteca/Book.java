@@ -34,4 +34,18 @@ public class Book {
         String availability = (isChecked) ? "Available" : "Unavailable";
         return "[" + availability + "] - " +  name + ", " + author + " - " + yearPublished + ";";
     }
+
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof  Book) {
+            Book otherBook = (Book) o;
+            if (this.getName().equals(otherBook.getName()) &&
+                    this.getAuthor().equals(otherBook.getAuthor()) &&
+                    this.getYearPublished().equals(otherBook.getYearPublished())) {
+
+                return true;
+            }
+        }
+        return false;
+    }
 }
