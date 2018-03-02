@@ -9,7 +9,7 @@ public class Menu {
     private List<Option> optionList;
     private Printer printer = new Printer();
     private BookService bookService = new BookService();
-    Scanner reader = new Scanner(System.in);
+    private Scanner reader = new Scanner(System.in);
 
     public Menu() {
         this.optionList = createMenuList();
