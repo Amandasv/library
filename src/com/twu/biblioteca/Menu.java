@@ -16,7 +16,7 @@ public class Menu {
     }
 
     public void showOptions() {
-        optionList.forEach(option -> printer.print(option.toString() + "\n") );
+        optionList.forEach(option -> printer.print(option.toString() + "\n"));
     }
 
 
@@ -24,17 +24,17 @@ public class Menu {
         printer.print("[" + option + "] ");
 
         switch (option) {
-            case 0 :
+            case 0:
                 printer.println(optionList.get(0).getTitle() + "\n");
                 printer.print(bookService.listAll());
                 break;
-            case 1 :
+            case 1:
                 printer.println(optionList.get(1).getTitle() + "\n");
-                showAvailableList();
 
                 if (bookService.availableList().isEmpty()) {
                     printer.print("Sorry, but don't have available books");
                 } else {
+                    showAvailableList();
                     printer.print("Choose number of book: ");
                     int index = reader.nextInt();
 
@@ -45,16 +45,16 @@ public class Menu {
                     }
                 }
                 break;
-            case 2 :
+            case 2:
                 printer.println(optionList.get(2).getTitle() + "\n");
-                showUnavailableList();
                 if (bookService.unavailableList().isEmpty()) {
                     printer.print("Sorry, but don't have book to return.");
                 } else {
+                    showUnavailableList();
                     printer.print("Choose number of book: ");
                     int index = reader.nextInt();
 
-                    if(bookService.returnBook(index)) {
+                    if (bookService.returnBook(index)) {
                         printer.println("Thank you for returning the book.");
                     } else {
                         printer.println("That is not a valid book to return.");
@@ -64,7 +64,7 @@ public class Menu {
         }
     }
 
-    private static List<Option> createMenuList(){
+    private static List<Option> createMenuList() {
         Option listBooks = new Option("List Books", 0);
         Option checkout = new Option("Checkout Book", 1);
         Option returnBook = new Option("Return Book", 2);
@@ -81,7 +81,6 @@ public class Menu {
         bookService.unavailableList().stream().forEach(book -> printer.println("[" + bookService.unavailableList().indexOf(book) + "] - " + book.getName()));
     }
 
-    //Funcao para lidar com retorno do checkout e imprimir na tela conforme o retorno
     //limpar um pouco do menu
 
 
