@@ -48,18 +48,15 @@ public class BookService {
         return false;
     }
 
-    public void returnBook(int index) {
+    public boolean returnBook(int index) {
         if (index <= unavailableList().size()-1) {
             Book selectedBook = unavailableList().get(index);
             if (unavailableList().contains(selectedBook)) {
                 selectedBook.setChecked(true);
-                printer.println("Book " + selectedBook.getName() + " returning");
-                printer.println("Thank you for returning the book.");
+                return true;
             }
         }
-        else {
-            printer.println("That is not a valid book to return.");
-        }
+        return false;
     }
 
 
