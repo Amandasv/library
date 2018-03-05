@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,7 +7,6 @@ import java.util.stream.Collectors;
 public class BookService {
 
     private List<Book> bookList;
-    private Printer printer = new Printer();
 
     public BookService() {
         this.bookList = initializeBookList();
@@ -19,8 +16,7 @@ public class BookService {
         return this.bookList;
     }
 
-    //arraylist
-    private static List<Book> initializeBookList(){
+    private static List<Book> initializeBookList() {
         Book book1 = new Book("Harry Potter", "J. K. Rowling", "1997", false);
         Book book2 = new Book("Head First Java", "Kathy Sierra, Bert Bates", "2003", true);
         Book book3 = new Book("Happy: Simple Steps for Getting the Life You Want", "Ian K. Smith M.D.", "2010", true);
@@ -38,26 +34,26 @@ public class BookService {
     }
 
     public boolean checkout(int index) {
-        if (index <= availableList().size()-1) {
+        if (index <= availableList().size() - 1) {
             Book selectedBook = availableList().get(index);
-            if (availableList().contains(selectedBook)) {
-                selectedBook.setChecked(false);
-                return true;
-            }
+            changeBookState(availableList(), selectedBook);
+            return true;
         }
         return false;
     }
 
     public boolean returnBook(int index) {
-        if (index <= unavailableList().size()-1) {
+        if (index <= unavailableList().size() - 1) {
             Book selectedBook = unavailableList().get(index);
-            if (unavailableList().contains(selectedBook)) {
-                selectedBook.setChecked(true);
-                return true;
-            }
+            changeBookState(unavailableList(), selectedBook);
+            return true;
         }
         return false;
     }
 
-
+    private void changeBookState(List<Book> list, Book selectedBook) {
+        if (list.contains(selectedBook)) {
+            selectedBook.setChecked(!selectedBook.isChecked());
+        }
+    }
 }
