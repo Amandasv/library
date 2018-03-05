@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class BookServiceTest {
 
@@ -70,12 +70,20 @@ public class BookServiceTest {
     }
 
     @Test
-    @Ignore
     public void doesNotCheckoutIfThisIndexDoesntExist(){
         int notExistIndex = 5;
 
+        assertFalse(bookService.checkout(notExistIndex));
+    }
 
+    @Test
+    public void returnsTrueIfThisBookCanBeReturned(){
+        int selectedBookIndex = 0;
 
+        Book selectedBook = bookService.unavailableList().get(selectedBookIndex);
+        bookService.returnBook(selectedBookIndex);
+
+        assertFalse(bookService.unavailableList().contains(selectedBook));
     }
 
 
