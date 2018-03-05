@@ -10,10 +10,6 @@ public class Option {
         return title;
     }
 
-    public int getCode() {
-        return code;
-    }
-
     public Option(String title, int code) {
         this.title = title;
         this.code = code;
