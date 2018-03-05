@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import org.junit.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -45,11 +44,6 @@ public class BookServiceTest {
     }
 
     @Test
-    public void returnsFalseIfThatListIsDifferent() {
-        assertNotEquals(bookService.listAll(), bookService.availableList());
-    }
-
-    @Test
     public void checkOutIfBookIsAvailable(){
         int selectedBookIndex = 1;
         Book selectedBook = bookService.availableList().get(selectedBookIndex);
@@ -85,6 +79,5 @@ public class BookServiceTest {
 
         assertFalse(bookService.unavailableList().contains(selectedBook));
     }
-
 
  }
