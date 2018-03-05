@@ -15,8 +15,8 @@ public class Menu {
         this.optionList = createMenuList();
     }
 
-    public void showOptions() {
-        optionList.forEach(option -> printer.print(option.toString() + "\n"));
+    public List<Option> listOptions() {
+        return this.optionList;
     }
 
 

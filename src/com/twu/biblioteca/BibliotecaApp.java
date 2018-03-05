@@ -17,7 +17,8 @@ public class BibliotecaApp {
             printer.print("\n----------------------------\n");
             printer.print("-----------Menu-------------\n\n");
 
-            menu.showOptions();
+            printer.print(menu.listOptions());
+
             printer.print("\n----------------------------\n");
 
             printer.print("Please, choose an option: ");

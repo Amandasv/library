@@ -1,17 +1,23 @@
 package com.twu.biblioteca;
 
 import org.junit.Assert;
-import org.junit.Ignore;
+import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class MenuTest {
 
-    @Test
-    @Ignore
-    public void returnsIfOptionExist() {
+    private Menu menu;
 
+    @Before
+    public void setup() {
+        menu = new Menu();
     }
+
+    @Test
+    public void initializeMenuWithAListOfOptions() {
+        int numbersTotalList = 4;
+
+        Assert.assertEquals(numbersTotalList, menu.listOptions().size());
+    }
+
 }
