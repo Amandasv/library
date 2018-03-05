@@ -73,11 +73,11 @@ public class Menu {
         return menuItens;
     }
 
-    public void showAvailableList() {
+    private void showAvailableList() {
         bookService.availableList().stream().forEach(book -> printer.println("[" + bookService.availableList().indexOf(book) + "] - " + book.getName()));
     }
 
-    public void showUnavailableList() {
+    private void showUnavailableList() {
         bookService.unavailableList().stream().forEach(book -> printer.println("[" + bookService.unavailableList().indexOf(book) + "] - " + book.getName()));
     }
 
