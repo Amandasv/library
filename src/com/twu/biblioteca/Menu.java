@@ -37,13 +37,11 @@ public class Menu {
                 } else {
                     printer.print("Choose number of book: ");
                     int index = reader.nextInt();
-                    bookService.checkout(index);
 
                     if (bookService.checkout(index)) {
                         printer.println("Thank you! Enjoy the book");
                     } else {
                         printer.println("That book is not available.");
-
                     }
                 }
                 break;
@@ -55,7 +53,12 @@ public class Menu {
                 } else {
                     printer.print("Choose number of book: ");
                     int index = reader.nextInt();
-                    bookService.returnBook(index);
+
+                    if(bookService.returnBook(index)) {
+                        printer.println("Thank you for returning the book.");
+                    } else {
+                        printer.println("That is not a valid book to return.");
+                    }
                 }
                 break;
         }
@@ -77,4 +80,9 @@ public class Menu {
     public void showUnavailableList() {
         bookService.unavailableList().stream().forEach(book -> printer.println("[" + bookService.unavailableList().indexOf(book) + "] - " + book.getName()));
     }
+
+    //Funcao para lidar com retorno do checkout e imprimir na tela conforme o retorno
+    //limpar um pouco do menu
+
+
 }
