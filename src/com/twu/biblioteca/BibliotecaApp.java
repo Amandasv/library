@@ -8,7 +8,8 @@ public class BibliotecaApp {
 
         Printer printer = new Printer();
         Scanner reader = new Scanner(System.in);
-        Menu menu = new Menu();
+        Menu menu = new Menu(new BookService(), printer);
+
         int option = 0;
 
         printer.print("Hello, Welcome to Bangalore Public Library! \n");

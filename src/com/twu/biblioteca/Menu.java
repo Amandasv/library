@@ -6,12 +6,14 @@ import java.util.Scanner;
 
 public class Menu {
 
+    private BookService bookService;
     private List<Option> optionList;
-    private Printer printer = new Printer();
-    private BookService bookService = new BookService();
+    private Printer printer;
     private Scanner reader = new Scanner(System.in);
 
-    public Menu() {
+    public Menu(BookService bookService, Printer printer) {
+        this.bookService = bookService;
+        this.printer = printer;
         this.optionList = createMenuList();
     }
 
