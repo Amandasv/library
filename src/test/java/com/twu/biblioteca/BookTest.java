@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.*;
 
 public class BookTest {
     @Test

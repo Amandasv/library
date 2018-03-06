@@ -1,16 +1,12 @@
 package com.twu.biblioteca;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
+import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
 
 public class PrinterTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();

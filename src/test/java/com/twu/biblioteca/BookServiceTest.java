@@ -20,7 +20,7 @@ public class BookServiceTest {
     public void initializesBookServicesWithAListOfBooks() {
         int numbersTotalList = 4;
 
-        Assert.assertEquals(numbersTotalList,bookService.listAll().size());
+        assertEquals(numbersTotalList,bookService.listAll().size());
     }
 
     @Test
@@ -31,7 +31,7 @@ public class BookServiceTest {
 
         List<Book> availableList = Arrays.asList(book2,book3,book4);
 
-        Assert.assertEquals(bookService.availableList(), availableList);
+        assertEquals(bookService.availableList(), availableList);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class BookServiceTest {
 
         List<Book> unavailableList = Arrays.asList(harryPotter);
 
-        Assert.assertEquals(bookService.unavailableList(), unavailableList);
+        assertEquals(bookService.unavailableList(), unavailableList);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class BookServiceTest {
 
         bookService.checkout(selectedBookIndex);
 
-        Assert.assertFalse(bookService.availableList().contains(selectedBook));
+        assertFalse(bookService.availableList().contains(selectedBook));
     }
 
     @Test
@@ -60,7 +60,7 @@ public class BookServiceTest {
 
         bookService.checkout(selectedBookIndex);
 
-        Assert.assertTrue(bookService.unavailableList().contains(selectedBook));
+        assertTrue(bookService.unavailableList().contains(selectedBook));
     }
 
     @Test
